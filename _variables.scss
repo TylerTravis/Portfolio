@@ -1,0 +1,129 @@
+// Variables SCSS
+
+
+// UI Colors
+$UIColor-Highlight: #C29F66;
+$UIColor-White: #ffffff;
+$UIColor-Grey: #e0e0e0;
+$UIColor-Black: #282828;
+$UIColor-Filter: rgba(0,0,0,0.6);
+
+// UI Fonts
+
+// Montserrat
+@font-face {
+	font-family: 'Montserrat SemiBold';
+	src: url('../assets/fonts/Montserrat-SemiBold.otf');
+}
+
+@font-face {
+	font-family: 'Montserrat Medium';
+	src: url('../assets/fonts/Montserrat-Medium.otf');
+}
+
+@font-face {
+	font-family: 'Montserrat Regular';
+	src: url('../assets/fonts/Montserrat-Regular.otf');
+}
+
+// Lato
+@font-face {
+	font-family: 'Lato Black';
+	src: url('../assets/fonts/Lato900.ttf');
+}
+
+@font-face {
+	font-family: 'Lato Regular';
+	src: url('../assets/fonts/Latoregular.ttf');
+}
+
+$UIFont-Backup: 'Helvetica', sans-serif;
+$UIFont-MontserratRegular: 'Montserrat Regular', $UIFont-Backup;
+$UIFont-MontserratMedium: 'Montserrat Medium', $UIFont-Backup;
+$UIFont-MontserratSemiBold: 'Montserrat SemiBold', $UIFont-Backup;
+
+$UIFont-LatoRegular: 'Lato Regular', $UIFont-Backup;
+$UIFont-LatoBlack: 'Lato Black', $UIFont-Backup;
+
+// UI Text
+.UIText-controls {
+	color: $UIColor-White;
+	font-family: $UIFont-MontserratMedium;
+	font-size: 1.25em;
+	letter-spacing: 1.33px;
+}
+
+h1 {
+	margin: 0;
+	font-family: $UIFont-MontserratSemiBold;
+	font-size: 4em;
+	color: $UIColor-White;
+	line-height: 140%;
+}
+
+h2 {
+	color: $UIColor-White;
+	font-family: $UIFont-LatoRegular;
+	font-size: 2em;
+	line-height: 180%;
+	letter-spacing: 1px;
+}
+
+h2.highlight {
+	color: $UIColor-Highlight;
+}
+
+h2.body {
+	font-size: 1.25em;
+	line-height: 180%;
+	color: $UIColor-Grey;
+	letter-spacing: 1.1px;
+}
+
+.experience {
+	font-size: 1em;
+	font-family: $UIFont-MontserratSemiBold;
+	letter-spacing: 1px;
+	background: $UIColor-Highlight;
+	padding: 0 20px;
+	height: 40px;
+	color: $UIColor-White;
+	line-height: 40px;
+	white-space: nowrap;
+}
+
+* {
+	-webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+	-ms-user-select: none; 
+	user-select: none;
+}
+
+$UICursor-activatable: pointer;
+
+// Buttons
+.CTA {
+	border: 3px solid $UIColor-Highlight;
+	color: $UIColor-White;
+	width: 300px;
+	height: 75px;
+	font-family: $UIFont-MontserratMedium;
+	font-size: 1.1em;
+	text-align: center;
+	line-height: 75px;
+	letter-spacing: 1.5px;
+}
+
+// Layout
+$WindowMargin-large: 75px;
+$WindowMargin-medium: 50px;
+$WindowMargin-small: 30px;
+
+// Animations
+$UITransition-timing: 0.4s ease-out;
+$UITransition-default: all $UITransition-timing;
+$UITransition-slow: all 0.5s ease-out;
+
+$indexTransitionDelay: 0.05;

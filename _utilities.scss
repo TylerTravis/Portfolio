@@ -1,0 +1,13 @@
+// Utilities SCSS
+
+@mixin flex($dir: row, $main: center, $cross: center) {
+	display: flex;
+	flex-direction: $dir;
+	justify-content: $main;
+	align-items: $cross;
+}
+
+@mixin trans($dur: $TSDefault, 
+						 $timing: $TTDefault) {
+	transition: all $dur $timing;
+}
