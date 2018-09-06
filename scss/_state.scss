@@ -1,16 +1,10 @@
 // State SCSS
-
-
-
 // Hover Effects
-
 .controls {
 	&-indexContainer {
 		&:hover {
 			& .controls-index {
-				
 				transform: translateX(0px);
-				
 				&::after {
 					color: white;
 					opacity: 1;
@@ -19,7 +13,6 @@
 		}
 	}
 }
-
 
 .indexHoverDisable-standard {
 	&:hover {
@@ -43,14 +36,12 @@
 	}
 }
 
-
 .menu {
 	.menuItem {
-		&:hover {			
+		&:hover {
 			.menuItemImageCover {
-				background: rgba(0,0,0,0.4);
+				background: rgba(0, 0, 0, 0.4);
 			}
-
 			h1 {
 				color: $UIColor-White;
 			}
@@ -60,16 +51,13 @@
 
 .CTA {
 	transition: $UITransition-default;
-
 	&:hover {
-		background: $UIColor-Highlight;
-		// color: $UIColor-Black;
+		background: $UIColor-Highlight; // color: $UIColor-Black;
 	}
 }
 
 .UIText-controls {
 	// transition: $UITransition-default;
-
 	&:hover {
 		color: $UIColor-Highlight;
 	}
@@ -79,59 +67,53 @@
 	.menuIconBar {
 		transition: $UITransition-default;
 	}
-	
 	&:hover .menuIconBar {
 		fill: $UIColor-Highlight;
 	}
 }
 
 // Width Based Media Queries
-
 // Minimize Font sizes
 @media only screen and (max-width: 1440px) {
 	h1 {
 		font-size: 4em;
 	}
-
 	h2 {
 		font-size: 2em;
 	}
 }
 
 // Minimize Font sizes
-@media screen and (max-width: 1205px), screen and (max-height: 925px) {
+@media screen and (max-width: 1205px),
+screen and (max-height: 925px) {
 	h1 {
 		font-size: 3.6em;
 	}
-
 	h2 {
 		font-size: 1.8em;
 	}
 }
 
 // Minimize Font sizes
-@media only screen and (max-width: 1050px), screen and (max-height: 885px) {
+@media only screen and (max-width: 1050px),
+screen and (max-height: 885px) {
 	h1 {
 		font-size: 2.8em;
 	}
-
 	h2 {
 		font-size: 1.6em;
 	}
-
 	.textContent {
 		.CTA {
 			margin-top: 20px;
 		}
 	}
-	
 }
 
-// Minimize h2.body width
 @media only screen and (max-width: 1030px) {
 	.textContent {
 		h2.body {
-			width: 70%;
+			// width: 100%;
 		}
 	}
 }
@@ -141,10 +123,8 @@
 		.CTAcontainer {
 			flex-direction: column;
 			align-items: flex-start;
-
 			.CTA:first-of-type {
-				margin-right: 0;
-				// margin-bottom: 20px;
+				margin-right: 0; // margin-bottom: 20px;
 			}
 		}
 	}
@@ -155,7 +135,6 @@
 	h1 {
 		font-size: 2.6em;
 	}
-
 	h2 {
 		font-size: 1.4em;
 	}
@@ -168,63 +147,51 @@
 		top: $WindowMargin-medium;
 		bottom: $WindowMargin-medium;
 		right: $WindowMargin-medium;
-		height: calc(100% - #{$WindowMargin-medium} * 2); 
-
+		height: calc(100% - #{$WindowMargin-medium} * 2);
 		&-indexContainer {
-			padding-right: 175px;
-			margin-bottom: 0;
+			padding-right: 175px; // margin-bottom: 0;
 		}
-
 		&-index {
 			transform: translateX(200px);
 		}
-
-		// &-contact {
-		// 	padding-bottom: 20px;
-		// }
 	}
-	
 	.logotype {
 		top: $WindowMargin-medium;
 		left: $WindowMargin-medium;
 	}
-
 	.textContent {
 		left: $WindowMargin-medium;
 		bottom: $WindowMargin-medium;
+		h2.body {
+			width: calc(100% - 175px);
+		}
 	}
-
-	
 }
 
 // Minimize Font sizes and textContent children margins
-@media only screen and (max-width: 800px), screen and (max-height: 800px) {
+@media only screen and (max-width: 800px),
+screen and (max-height: 800px) {
 	.textContent {
 		h1 {
 			// margin: 10px 0 15px 0;
 		}
-
 		h2.body {
 			// margin-bottom: 25px;
 		}
 	}
-
-
 	h1 {
 		font-size: 2.2em;
 	}
-
 	h2 {
 		font-size: 1.2em;
 		line-height: 200%;
 	}
 }
 
-// Minimize h2.body width
-@media only screen and (max-width: 790px) {
+@media only screen and (max-width: 750px) {
 	.textContent {
 		h2.body {
-			width: 60%;
+			width: calc(100% - 200px);
 		}
 	}
 }
@@ -233,170 +200,125 @@
 @media screen and (max-width: 700px) {
 	h1 {
 		font-size: 2.0em;
+		margin: 5px 0;
 	}
-
-	h2 {
+	h2,
+	h2.body {
 		font-size: 1.0em;
-		line-height: 220%;
+		line-height: 180%;
 	}
-
 	.textContent {
-		h2.body {
-			max-width: 70%;
-		}
-
 		.CTA {
-		width: 250px;
-		height: 60px;
-		line-height: 60px;
-		font-size: 0.9em;
-
-		a {
+			width: 250px;
+			height: 60px;
 			line-height: 60px;
-			font-size: 1em;
+			font-size: 0.9em;
+			a {
+				line-height: 60px;
+				font-size: 1em;
+			}
 		}
 	}
-	}
-
-	
 }
 
-// Minimize h1 size and h2.body width
-@media only screen and (max-width: 675px) {
-	h1 {
-		font-size: 1.8em;
-	}
-
+@media only screen and (max-width: 750px) {
 	.textContent {
-		// h1 {
-		// 	margin: 5px 0 10px 0;
-		// }
-
-			h2.body {
-			width: 50%;
+		h2.body {
+			width: calc(100% - 225px);
 		}
 	}
-
-
 }
 
 // Minimize h1 size and h2.body margin
 @media only screen and (max-width: 625px) {
-
 	.controls {
 		&-indexContainer {
 			padding-right: 150px;
 		}
-
 		&-index {
 			transform: translateX(175px);
 		}
 	}
-
 	.UIText-controls:not(.contact) {
 		font-size: 1em;
 	}
-
 }
 
 // Remove Index and Contact controls. Center textContent. 
 @media only screen and (max-width: 600px) {
-	
 	.controls {
 		top: $WindowMargin-small;
 		bottom: $WindowMargin-small;
-		right: $WindowMargin-small;
-
-		// &-contact {
+		right: $WindowMargin-small; // &-contact {
 		// 	padding-bottom: 25px;
 		// }
 	}
-
 	.logotype {
 		top: $WindowMargin-small;
 		left: $WindowMargin-small;
 	}
-
 	.controls-menu {
 		margin-bottom: auto;
 	}
-
-	.controls-indexContainer, .controls-contact {
+	.controls-indexContainer,
+	.controls-contact {
 		display: none;
 	}
-
 	.textContent {
 		width: 100%;
 		max-width: 100%;
 		top: 0;
 		left: 0;
-		
-		@include flex($dir: column);
-		padding: 75px 0 20px 0;
-
+		@include flex($dir: column); // padding: 75px 0 20px 0;
+		padding: 0;
 		h1 {
-			line-height: 150%;
-			// margin: 5px 0 10px 0;
+			line-height: 150%; // margin: 5px 0 10px 0;
 		}
-
-		h1, h2, h2.body, h2.highlight {
+		h1,
+		h2,
+		h2.body,
+		h2.highlight {
 			text-align: center;
 			max-width: 80%;
 			width: 80%;
 		}
-
 		h2.body {
 			line-height: 180%;
 			font-size: 1em;
 		}
-
 		.experienceContainer {
 			justify-content: center;
 			margin: 0 10px;
-			max-width: 100%;
-			// height: auto;
+			max-width: 100%; // height: auto;
 			.experience {
 				margin-right: 5px;
 				margin-left: 5px;
 			}
 		}
-
-		
-
 		.CTA {
 			margin-top: 15px;
 		}
 	}
-	
 }
 
-
 // Minimize index padding for shorter window heights
-@media only screen and (max-height: 800px) and (min-width: 600px) {	 
+@media only screen and (max-height: 800px) and (min-width: 600px) {
 	.controls {
 		top: $WindowMargin-medium;
 		right: $WindowMargin-medium;
 		bottom: $WindowMargin-medium;
-		height: calc(100% - #{$WindowMargin-medium} * 2); 
-
+		height: calc(100% - #{$WindowMargin-medium} * 2);
 		&-indexContainer {
 			padding-right: 175px;
 		}
-
 		&-index {
 			transform: translateX(200px);
 		}
-
-		// &-contact {
-		// 	padding-bottom: 20px;
-		// }
 	}
-	
 	.logotype {
 		top: $WindowMargin-medium;
 		left: $WindowMargin-medium;
 	}
-
 	.textContent {
 		bottom: $WindowMargin-medium;
 		left: $WindowMargin-medium;
@@ -404,7 +326,7 @@
 }
 
 // Minimize index padding for shorter window heights
-@media only screen and (max-height: 740px) {	 
+@media only screen and (max-height: 740px) {
 	.controls {
 		&-index {
 			padding: 20px;
@@ -412,31 +334,13 @@
 	}
 }
 
-
-
-
 // Menu is stacked vertically on low aspect ratios
-
 @media (max-aspect-ratio: 1/1) {
 	.menu {
 		flex-direction: column;
-
 		.slideContainer {
 			width: 100%;
-			height: 25%;
-			// border-bottom: 1px solid $UIColor-Grey;
-		}
-	}
-}	
-
-
-
-// Adjust content for .about section
-@media only screen and (max-width: 745px) {
-	.aboutContent {
-		h2.body {
-			width: 100%;
-			max-width: calc(100% - 50px);
+			height: 25%; // border-bottom: 1px solid $UIColor-Grey;
 		}
 	}
 }

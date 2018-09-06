@@ -1,5 +1,4 @@
 // Layout SCSS
-
 body {
 	background: $UIColor-Black;
 }
@@ -7,39 +6,30 @@ body {
 .controls {
 	position: fixed;
 	@include flex($dir: column, $cross: flex-end);
-	
 	top: $WindowMargin-large;
 	right: $WindowMargin-large;
-
 	width: 50px;
 	height: calc(100% - #{$WindowMargin-large} * 2);
-
 	z-index: 2;
-
 	* {
 		cursor: $UICursor-activatable;
 	}
-
 	&-menu {
 		margin-bottom: auto;
 		padding: 25px;
 		transform: translate(25px, -25px);
 	}
-
 	&-indexContainer {
-		@include flex($dir: column);
-		// padding-bottom: 125px;
+		@include flex($dir: column); // padding-bottom: 125px;
 		transition: $UITransition-default;
 		width: auto;
 		padding-right: 150px;
 		margin-bottom: 50px;
 	}
-
 	&-index {
 		padding: 25px;
 		transform: translateX(175px);
 		transition: transform 0.4s ease-out, color 0.2s ease-out;
-
 		&::before {
 			content: '';
 			position: absolute;
@@ -49,7 +39,6 @@ body {
 			background: $UIColor-Highlight;
 			transition: width 730ms ease-out;
 		}
-
 		&::after {
 			content: '';
 			width: 250px;
@@ -62,42 +51,34 @@ body {
 			padding: 25px 0;
 			transform: translateY(-25px);
 		}
-
 		&:nth-of-type(1) {
 			// transition: padding 0.4s #{$indexTransitionDelay}s ease-out;
 			transition-delay: #{$indexTransitionDelay * 0}s;
 			&::after {
 				content: '– Home';
-			} 
+			}
 		}
-
 		&:nth-of-type(2) {
 			// transition: padding 0.4s #{$indexTransitionDelay * 2}s ease-out;
 			transition-delay: #{$indexTransitionDelay * 1}s;
 			&::after {
 				content: '– LLT Marketing';
 			}
-			
 		}
-
 		&:nth-of-type(3) {
 			// transition: padding 0.4s #{$indexTransitionDelay * 3}s ease-out;
 			transition-delay: #{$indexTransitionDelay * 2}s;
 			&::after {
 				content: '– Heliconia Caribea';
 			}
-			
 		}
-
 		&:nth-of-type(4) {
 			// transition: padding 0.4s #{$indexTransitionDelay * 4}s ease-out;
 			transition-delay: #{$indexTransitionDelay * 3}s;
 			&::after {
 				content: '– Summit';
 			}
-			
 		}
-
 		&:nth-of-type(5) {
 			// transition: padding 0.4s #{$indexTransitionDelay * 5}s ease-out;
 			transition-delay: #{$indexTransitionDelay * 4}s;
@@ -105,7 +86,6 @@ body {
 				content: '– About Me';
 			}
 		}
-
 		&:nth-of-type(6) {
 			// transition: padding 0.4s #{$indexTransitionDelay * 6}s ease-out;
 			transition-delay: #{$indexTransitionDelay * 5}s;
@@ -113,15 +93,12 @@ body {
 				content: '– Contact';
 			}
 		}
-
 	}
-
 	&-index-active {
 		&::before {
 			width: 31%;
 		}
 	}
-
 	&-contact {
 		margin-top: auto;
 		bottom: $WindowMargin-large;
@@ -142,54 +119,43 @@ body {
 	position: fixed;
 	left: $WindowMargin-large;
 	bottom: $WindowMargin-large;
-	max-width: 80%;
+	width: 80%;
 	z-index: 1;
-
-
-	> * {
+	>* {
 		transition: opacity $UITransition-timing, transform $UITransition-timing;
 		opacity: 0;
 		transform: translateX(-20px);
 	}
-
 	h1 {
 		width: 65%;
 	}
-	
-	h2 {
-		max-width: 60%;
+	h2.body {
+		width: calc(100% - 150px);
 	}
-
 	.CTAcontainer {
 		@include flex($main: flex-start);
-		
 		.CTA:first-of-type {
 			margin-right: 25px;
 		}
 	}
-
 	.CTA {
 		margin-top: 30px;
 		cursor: $UICursor-activatable;
-		
 	}
-
 	a {
 		display: inline-block;
 		text-decoration: none;
 	}
-
 	.experienceContainer {
 		@include flex($main: flex-start);
 		flex-wrap: wrap;
 		max-width: 80%;
-
 		.experience {
 			display: inline-block;
 			margin-right: 20px;
 		}
-
-		.experience + .experience, .experience:first-of-type {
+		.experience+.experience,
+		.experience:first-of-type {
 			margin-top: 20px;
 		}
 	}
@@ -198,19 +164,15 @@ body {
 .slider {
 	position: fixed;
 	@include flex($main: flex-start);
-
 	width: 100%;
 	height: 100%;
-
 	top: 0;
 	left: 0;
-
 	.slideContainer {
 		position: relative;
 		overflow: hidden;
 		width: 25%;
 		height: 100%;
-
 		&:nth-of-type(2) .imageSlide {
 			img {
 				transform: translateX(-25%);
@@ -226,7 +188,6 @@ body {
 				transform: translateX(-75%);
 			}
 		}
-
 		.slide {
 			position: relative;
 			width: 100%;
@@ -236,7 +197,6 @@ body {
 			transform: translateX(-105%);
 			box-sizing: border-box;
 		}
-
 		.imageSlide {
 			left: 0;
 			position: absolute;
@@ -244,16 +204,14 @@ body {
 			height: 100%;
 			width: 100.5%;
 			transition: $UITransition-default;
-
 			img {
 				display: block;
 				height: auto;
 				width: 100vw;
 				min-width: 1400px;
-				min-height: 100%;				
+				min-height: 100%;
 			}
 		}
-
 		.two {
 			transform: translateX(-102%);
 			z-index: 1;
@@ -264,30 +222,24 @@ body {
 .menu {
 	z-index: 20;
 	display: none;
-
 	&:last-of-type {
 		clip-path: polygon(0% 0%, 50% 0%, 100% 12.5vw, 100% 100%, 0% 100%);
 	}
-
 	.menuItem {
-		@include flex($dir: column);
-
-		// Image positioning
+		@include flex($dir: column); // Image positioning
 		&:nth-of-type(1) {
 			img {
 				left: 0;
 			}
 		}
-
 		h1 {
 			color: $UIColor-Grey;
 			transition: $UITransition-default;
 		}
-
-		h1, h2 {
+		h1,
+		h2 {
 			z-index: 22;
 		}
-
 		.menuItemImageCover {
 			position: absolute;
 			height: 100%;
@@ -299,7 +251,6 @@ body {
 			z-index: 21;
 			border-bottom: 1px solid $UIColor-Grey;
 		}
-
 		img {
 			position: absolute;
 			min-width: 100%;
@@ -311,8 +262,7 @@ body {
 }
 
 .menuExitButton {
-	position: fixed;
-	// @include flex();
+	position: fixed; // @include flex();
 	display: none;
 	width: 12.5vw;
 	height: 12.5vw;
@@ -323,14 +273,11 @@ body {
 	top: 0;
 	right: 0;
 	clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 0%);
-	-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 0%);
-  // clip-path: url("#menuExitClipPath");
-	
+	-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 0%); // clip-path: url("#menuExitClipPath");
 	background: $UIColor-Black;
 	z-index: 21;
 	opacity: 0;
 	transition: opacity 0.4s ease-out;
-
 	.menuExitIcon {
 		transform: translate(100%, -100%);
 		width: 25px;
@@ -346,12 +293,9 @@ body {
 
 .loader {
 	z-index: 30;
-
 	.slide {
 		background: white;
-		
 	}
-
 	.logo {
 		position: fixed;
 		top: 50%;
@@ -360,25 +304,20 @@ body {
 		opacity: 0;
 		transition: $UITransition-slow;
 	}
-
-	.progressTotal, .progressAmount {
+	.progressTotal,
+	.progressAmount {
 		position: fixed;
 		left: 50%;
 		top: 50%;
-
-		
 		max-width: 80%;
 		height: 4px;
-
 		transform: translate(-50%, 85px);
 		transition: $UITransition-default;
 	}
-
 	.progressTotal {
 		width: 300px;
 		background: $UIColor-Grey;
 	}
-
 	.progressAmount {
 		background: $UIColor-Black;
 	}

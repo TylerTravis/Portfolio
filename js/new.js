@@ -88,7 +88,7 @@
 
 		// Set display
 		el.style.display = "flex";
-		
+
 		for (let i = 0; i < el.children.length; i++) {
 			setTimeout(function () {
 				el.children[i].children[0].style.transform = 'translateX(0)';
@@ -99,7 +99,7 @@
 			displayMenuExitButton();
 
 			// Sets borders on all slides but the last
-			for (let i = 0; i < el.children.length; i++) { 
+			for (let i = 0; i < el.children.length; i++) {
 				if (i !== 3) {
 					if (window.innerWidth > window.innerHeight) {
 						el.children[i].children[0].style.borderRight = "1px solid #aaaaaa";
@@ -144,7 +144,7 @@
 	}
 
 	function displayMenuExitButton() {
-		
+
 		setTimeout(() => {
 			menuExitButton.style.display = "flex";
 			menuExitButton.style.alignItems = "center";
@@ -177,7 +177,7 @@
 					main.children[i].children[0].style.transform = 'translateX(-102%)';
 					main.children[i].children[0].style.zIndex = '1';
 					main.children[i].children[1].style.zIndex = '0';
-					
+
 				}, i * defaultDelay + defaultDuration);
 
 				// Set .one to have normal transition again
@@ -229,7 +229,7 @@
 		}
 	}
 
-	
+
 
 	function checkAndSetSlideTimeout() {
 		if (slideAniIsInProgress) {
@@ -273,13 +273,25 @@
 			// Offset centers the images that should be
 			let offset;
 			switch (currentSlide) {
-				case 0: offset = (1400 - window.innerWidth) / 2; break;
-				case 1: offset = (1400 - window.innerWidth) / 2; break;
-				case 2: offset = 0; break;
-				case 3: offset = (1400 - window.innerWidth) / 2; break;
-				case 4: offset = (1400 - window.innerWidth) / 2; break;
-				case 5: offset = (1400 - window.innerWidth) / 2; break;
-				// case 5: offset = 0; break;
+				case 0:
+					offset = (1400 - window.innerWidth) / 2;
+					break;
+				case 1:
+					offset = (1400 - window.innerWidth) / 2;
+					break;
+				case 2:
+					offset = 0;
+					break;
+				case 3:
+					offset = (1400 - window.innerWidth) / 2;
+					break;
+				case 4:
+					offset = (1400 - window.innerWidth) / 2;
+					break;
+				case 5:
+					offset = (1400 - window.innerWidth) / 2;
+					break;
+					// case 5: offset = 0; break;
 			}
 
 			for (let i = 0; i < main.children.length; i++) {
@@ -344,10 +356,20 @@
 
 		switch (index) {
 			case 0:
-				cta.addEventListener('click', function () { loadSlide(1); });
-				cta2.addEventListener('click', function () { loadSlide(5); }); break;
-			case 4: cta.addEventListener('click', function () { loadSlide(5); }); break;
-			default: break;
+				cta.addEventListener('click', function () {
+					loadSlide(1);
+				});
+				cta2.addEventListener('click', function () {
+					loadSlide(5);
+				});
+				break;
+			case 4:
+				cta.addEventListener('click', function () {
+					loadSlide(5);
+				});
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -355,26 +377,29 @@
 		const activeIndexElement = document.querySelector('.controls-index-active');
 		const newIndex = document.querySelector(`.controls-index:nth-of-type(${index + 1})`);
 
-		activeIndexElement.classList.remove('controls-index-active');		
+		activeIndexElement.classList.remove('controls-index-active');
 		newIndex.classList.add('controls-index-active');
 	}
 
+	// TODO: Fix first load issue where ipad sets top to 100px
 	function adjustContentHeight(index) {
+		textContentContainer.removeAttribute('style');
+		textContentContainer.children[textContentContainer.children.length - 1].style.marginBottom = '0px';
+
+		
+
+		let bottomMargin = window.innerWidth > 600 ? 50 : 20;
+		let topMargin = 150;
 
 
-
-		if (index === 4) {
-			textContentContainer.style.justifyContent = `flex-start`;
-			if (window.innerWidth <= 745) {
-				textContentContainer.classList.add('aboutContent');
-			} 
-
-			if (window.innerWidth <= 600) {
-				textContentContainer.style.position = `absolute`;
-			}
-		} else {
-			textContentContainer.removeAttribute('style');
-			textContentContainer.classList.remove('aboutContent');
+		if (textContentContainer.clientHeight > window.innerHeight - topMargin && window.innerWidth > 600 || (currentSlide === 4 && window.innerWidth < 600)) {
+			textContentContainer.style.position = 'absolute';
+			textContentContainer.style.top = '100px';
+			textContentContainer.style.bottom = 'auto';
+			textContentContainer.children[textContentContainer.children.length - 1].style.marginBottom = `${bottomMargin}px`;
+		} else if (window.innerWidth <= 600 && currentSlide !== 4) {
+			textContentContainer.style.top = '50%';
+			textContentContainer.style.transform = 'translate(0%, -50%)';
 		}
 	}
 
@@ -389,7 +414,7 @@
 			bottomIsReached = false;
 			topIsReached = false;
 		}
-		
+
 		updateBackground(index);
 		resizeBackground();
 		updateTextContent(index);
@@ -397,9 +422,6 @@
 		updateIndices(index);
 		adjustContentHeight(index);
 	}
-
-	
-
 
 	// For browsers with shifting window heights like i-devices or apps that are loading a web page in their own view with their additional view content (reddit or facebook browsing)
 	function setSliderHeight() {
@@ -411,7 +433,9 @@
 
 	// Disables index change on reaching bottom or top of about textContentContainer.
 	// Both are reset to false when the about slide is loaded by loadSlide()
-	var bottomIsReached = true, topIsReached = true;
+	var bottomIsReached = true,
+		topIsReached = true;
+
 	function aboutIndexCanChange() {
 		if (window.scrollY + window.innerHeight === textContentContainer.clientHeight) {
 			bottomIsReached = true;
@@ -423,68 +447,55 @@
 		}
 	}
 
-
-
-
 	// Contact label listener
-	contact.addEventListener('click', function () {
-		loadSlide(5);
-	});
+	contact.addEventListener('click', () => loadSlide(5));
 
 	// Menu Event Listeners
-	menuToggle.addEventListener('click', function () {
-		activateSlider(menu);
-	});
+	menuToggle.addEventListener('click', () => activateSlider(menu));
 
-	menuExitButton.addEventListener("click", function () {
-		deactivateSlider(menu);
-	});
+	menuExitButton.addEventListener("click", () => deactivateSlider(menu));
 
-	// TODO: ADJUST MENU INDICES BASED ON MOBILE OR DESKTOP???
+	// .menuItem listeners 
 	for (let i = 0; i < menu.children.length; i++) {
 		switch (i) {
 			case 0:
 				menu.children[i].addEventListener('click', function () {
 					deactivateSlider(menu);
 					loadSlide(0);
-				}); break;
+				});
+				break;
 			case 1:
 				menu.children[i].addEventListener('click', function () {
 					deactivateSlider(menu);
 					loadSlide(1);
-				}); break;
+				});
+				break;
 			case 2:
 				menu.children[i].addEventListener('click', function () {
 					deactivateSlider(menu);
 					loadSlide(4);
-				}); break;
+				});
+				break;
 			case 3:
 				menu.children[i].addEventListener('click', function () {
 					deactivateSlider(menu);
 					loadSlide(5);
-				}); break;
-			default: console.warn('Menu switch statement fell through');
+				});
+				break;
+			default:
+				console.warn('Menu switch statement fell through');
 		}
-
-		
 	}
 
 	// Logotype
-	logotype.addEventListener('click', function () {
-		loadSlide(0);
-	});
+	logotype.addEventListener('click', () => loadSlide(0));
 
 	// TODO: SEE IF STILL NECESSARY
+	// Touch and Click Behavior on indices
+	indexContainer.addEventListener('touchend', ev => ev.preventDefault());
 
 	// Touch and Click Behavior on indices
-	indexContainer.addEventListener('touchend', function (ev) {
-		ev.preventDefault();
-	});
-
-	// Touch and Click Behavior on indices
-	indexContainer.addEventListener('touchstart', function (ev) {
-		ev.preventDefault();
-	});
+	indexContainer.addEventListener('touchstart', ev => ev.preventDefault());
 
 	// Index Event Listeners
 	for (let i = 0; i < indexContainer.children.length; i++) {
@@ -497,25 +508,17 @@
 		});
 	}
 
-
-
-
-
-	let touchStartY, touchEndY;
 	// Log initial touch
-	addEventListener('touchstart', function (ev) {
+	addEventListener('touchstart', ev => {
 		touchStartX = ev.changedTouches['0'].clientX;
 		touchStartY = ev.changedTouches['0'].clientY;
 
-		// for (let i = 0; i < indexContainer.children.length; i++) {
-		// 	indexContainer[i].classList.add('disableIndexHover');
-		// }
 		if (window.innerWidth > 625 && window.innerWidth <= 900) indexContainer.classList.add('indexHoverDisable-extended');
 		if (window.innerWidth < 625 || window.innerWidth > 900) indexContainer.classList.add('indexHoverDisable-standard');
 	});
 
 	// Change index on swipe up or down
-	addEventListener('touchend', function (ev) {
+	addEventListener('touchend', ev => {
 		touchEndX = ev.changedTouches['0'].clientX;
 		touchEndY = ev.changedTouches['0'].clientY;
 
@@ -568,31 +571,36 @@
 				}
 			}
 		}
-	});
+	});	
 
 	// Scroll listener
-	addEventListener('wheel', function (e) {
-		if (e.deltaY > 0 && currentSlide !== 5) loadSlide(currentSlide + 1);
-		if (e.deltaY < 0 && currentSlide !== 0) loadSlide(currentSlide - 1);
+	let lastScrollTimestamp;
+	addEventListener('wheel', ev => {
+		// Checks that the WheelEvent is not being triggered by a trackpad SmoothScroll		
+		if (ev.timeStamp - lastScrollTimestamp > 50 || lastScrollTimestamp === undefined) {
+			// Check if textContent is too large for page and has inline styles to adjust
+			if (textContentContainer.getAttribute('style') === null) {
+				if (ev.deltaY > 0 && currentSlide !== 5) loadSlide(currentSlide + 1);
+				if (ev.deltaY < 0 && currentSlide !== 0) loadSlide(currentSlide - 1);
+			} else {
+				if (ev.deltaY > 0 && currentSlide !== 5 && window.innerHeight - textContentContainer.getBoundingClientRect().bottom > -10) loadSlide(currentSlide + 1);
+				if (ev.deltaY < 0 && currentSlide !== 0 && window.scrollY < 10) loadSlide(currentSlide - 1);
+			}			
+		}
+		lastScrollTimestamp = ev.timeStamp;
 	});
 
 	// Resize
-	addEventListener('resize', function () {
+	addEventListener('resize', () => {
 		adjustContentHeight(currentSlide);
 		resizeBackground();
 		setSliderHeight();
 		updateMenuIndices();
-
-	})
+	});
 
 	// Reset slider heights on
 	addEventListener('focus', setSliderHeight);
 	addEventListener('pageshow', setSliderHeight);
-
-
-
-
-
 
 	// On page load
 	loadSlide(0);
@@ -602,17 +610,6 @@
 
 
 	// Loader
-
-
-
-	// XHR images
-
-	// On load, increment loading bar
-
-	// When complete, load main page
-
-	
-
 	// const preloadedImageURLS = [
 	// 	'assets/images/bg1.jpg',
 	// 	'assets/images/bg2.jpg',
@@ -663,5 +660,4 @@
 	// 		};
 	// 	}
 	// }
-
 })();

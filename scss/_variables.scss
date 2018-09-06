@@ -1,47 +1,42 @@
 // Variables SCSS
-
-
 // UI Colors
 $UIColor-Highlight: #C29F66;
 $UIColor-White: #ffffff;
 $UIColor-Grey: #e0e0e0;
 $UIColor-Black: #282828;
-$UIColor-Filter: rgba(0,0,0,0.6);
-
+$UIColor-Filter: rgba(0, 0, 0, 0.6);
 // UI Fonts
-
 // Montserrat
 @font-face {
 	font-family: 'Montserrat SemiBold';
-	src: url('../assets/fonts/Montserrat-SemiBold.otf');
+	src: url('../assets/fonts/Montserrat-SemiBold.ttf');
 }
 
 @font-face {
 	font-family: 'Montserrat Medium';
-	src: url('../assets/fonts/Montserrat-Medium.otf');
+	src: url('../assets/fonts/Montserrat-Medium.ttf');
 }
 
 @font-face {
 	font-family: 'Montserrat Regular';
-	src: url('../assets/fonts/Montserrat-Regular.otf');
+	src: url('../assets/fonts/Montserrat-Regular.ttf');
 }
 
 // Lato
 @font-face {
 	font-family: 'Lato Black';
-	src: url('../assets/fonts/Lato900.ttf');
+	src: url('../assets/fonts/Lato-Black.ttf');
 }
 
 @font-face {
 	font-family: 'Lato Regular';
-	src: url('../assets/fonts/Latoregular.ttf');
+	src: url('../assets/fonts/Lato-Regular.ttf');
 }
 
 $UIFont-Backup: 'Helvetica', sans-serif;
 $UIFont-MontserratRegular: 'Montserrat Regular', $UIFont-Backup;
 $UIFont-MontserratMedium: 'Montserrat Medium', $UIFont-Backup;
 $UIFont-MontserratSemiBold: 'Montserrat SemiBold', $UIFont-Backup;
-
 $UIFont-LatoRegular: 'Lato Regular', $UIFont-Backup;
 $UIFont-LatoBlack: 'Lato Black', $UIFont-Backup;
 
@@ -53,16 +48,24 @@ $UIFont-LatoBlack: 'Lato Black', $UIFont-Backup;
 	letter-spacing: 1.33px;
 }
 
+* {
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2 {
+	color: $UIColor-White;	
+}
+
 h1 {
 	margin: 0;
 	font-family: $UIFont-MontserratSemiBold;
 	font-size: 4em;
-	color: $UIColor-White;
 	line-height: 140%;
 }
 
 h2 {
-	color: $UIColor-White;
 	font-family: $UIFont-LatoRegular;
 	font-size: 2em;
 	line-height: 180%;
@@ -92,17 +95,7 @@ h2.body {
 	white-space: nowrap;
 }
 
-* {
-	-webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-	-ms-user-select: none; 
-	user-select: none;
-}
-
 $UICursor-activatable: pointer;
-
 // Buttons
 .CTA {
 	border: 3px solid $UIColor-Highlight;
@@ -120,10 +113,8 @@ $UICursor-activatable: pointer;
 $WindowMargin-large: 75px;
 $WindowMargin-medium: 50px;
 $WindowMargin-small: 30px;
-
 // Animations
 $UITransition-timing: 0.4s ease-out;
 $UITransition-default: all $UITransition-timing;
 $UITransition-slow: all 0.5s ease-out;
-
 $indexTransitionDelay: 0.05;
