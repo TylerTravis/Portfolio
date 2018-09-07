@@ -1,6 +1,7 @@
 // Layout SCSS
 body {
 	background: $UIColor-Black;
+	overscroll-behavior: none;
 }
 
 .controls {

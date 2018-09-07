@@ -23,7 +23,6 @@
 	let imageSlideOneIsActive = true;
 
 	// Slide Animation and Content
-
 	let currentSlide = 0;
 	let firstSlideHasBeenAnimated = false;
 	let slideAniIsInProgress = false;
@@ -31,7 +30,7 @@
 		[
 			'<h2 class="highlight">– Tyler Travis</h2>',
 			'<h1>Web, UI, and UX Designer</h1>',
-			"<h2 class='body'>I'm a 22 year old designer from California living in Washington.  My expertise is in creating user centered designs with beautiful aesthetic and translating those designs into websites. This portfolio is a selection of my favorite projects and also the best way to contact me.</h2>",
+			"<h2 class='body'>I'm a 22 year old designer from California living in Washington.  My expertise is in creating beautiful user centered designs and translating those designs into websites. This portfolio is a selection of my favorite projects and also the best way to contact me.</h2>",
 			'<div class="CTAcontainer"><div class="CTA">VIEW WORK</div><div class="CTA">CONTACT</div></div>'
 		],
 		[
@@ -54,7 +53,7 @@
 		],
 		[
 			'<h1>About Me</h1>',
-			"<h2 class='body'>I love dogs, MMA, craft beer, and the feeling of improvement. I'm always learning new methods of creating value for my clients. For the past two years, this has namely been UX but also includes Wordpress and 3D animation.  I'm currently available as either a freelancer or employee, and I'm always looking to take on new and exciting projects!</h2 > ",
+			"<h2 class='body'>I love animals, MMA, and craft beer. My forte is in wireframing, creating mockups, and front end web development.  I'm currently available as either a freelancer or employee, and I'm always looking to take on new and exciting projects!</h2 > ",
 			'<h1>Experience</h1>',
 			'<div class="experienceContainer"><p class="experience">HTML  –  4 YEARS</p><p class="experience">CSS  –  4 YEARS</p><p class="experience">JS  –  3 YEARS</p><p class="experience">SASS  –  2 YEARS</p><p class="experience">UI DESIGN  –  4 YEARS</p><p class="experience">UX DESIGN  –  2 YEARS</p><p class="experience">SKETCH  –  4 YEARS</p></div>',
 			'<div class="CTA" style="margin-top: 30px;">CONTACT</div>'
@@ -433,8 +432,7 @@
 
 	// Disables index change on reaching bottom or top of about textContentContainer.
 	// Both are reset to false when the about slide is loaded by loadSlide()
-	var bottomIsReached = true,
-		topIsReached = true;
+	var bottomIsReached = true, topIsReached = true;
 
 	function aboutIndexCanChange() {
 		if (window.scrollY + window.innerHeight === textContentContainer.clientHeight) {

@@ -425,6 +425,7 @@ h2.body {
 
 body {
   background: #282828;
+  overscroll-behavior: none;
 }
 
 .controls {
